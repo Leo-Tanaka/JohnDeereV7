@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/css/Home.css" />
+    <title>Visualização de Carros e Rotas</title>
+</head>
+
+<body>
+    <header>
+        <img src="./src/assets/Spot.png" alt="Logo">
+        <nav>
+            <ul>
+                <li><a href="./Home.html"><img class="icon" src="./src/assets/Home.png" alt="Home"></a></li>
+                <li><a href="./Mapa.html">Mapa</a></li>
+                <li><a href="./Status.html">Status</a></li>
+                <li><a href="./LoginV2.html"><img class="icom" src="./src/assets/Logout.png" alt="Logout"></a></li>
+            </ul>
+        </nav>
+        <h1 id="Welcome"></h1>
+    </header>
+    <div class="container">
+        <div class="carros-status">
+            <img class="icon" src="./src/assets/Status_V2.png" alt="Status">
+            <h2>Status dos Carros</h2>
+            <ul>
+                <li>Carro 1: Vazio</li>
+                <li>Carro 2: Cheio</li>
+                <li>Carro 3: Vazio</li>
+                <li>Carro 4: Vazio</li>
+                <li>Carro 5: Cheio</li>
+            </ul>
+        </div>
+        <div class="map-container">
+            <img src="./src/assets/Mapa.png" alt="Mapa">
+            <h2>Rotas e Localização dos Carros</h2>
+            <!-- Embed Google Maps com rotas -->
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.517784092745!2d-46.63330948502132!3d-23.550519084689194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8b0f95b4b%3A0x21de5f3a5c1b6c9b!2sS%C3%A3o%20Paulo%2C%20State%20of%20S%C3%A3o%20Paulo%2C%20Brazil!5e0!3m2!1sen!2sus!4v1606289033138!5m2!1sen!2sus"
+                allowfullscreen="" aria-hidden="false" tabindex="0">
+            </iframe>
+        </div>
+    </div>
+    <footer>
+        <img class="HardSmith" src="./src/assets/HS_V2.png">
+        <p class="Dev">Desenvolvido por HardSmith</p>
+        <p class="direitos">© 2024 HardSmith. Todos os direitos reservados.</p>
+    </footer>
+    <script src="./src/js/script.js"></script>
+</body>
+
+</html>
