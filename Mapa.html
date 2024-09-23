@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="./src/css/Mapa.css" />
     <title>Visualização de Carros e Rotas</title>
     <!-- Adicione o script da API do Google Maps com sua chave -->
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAheWGNl52XQVdtIwsv-6KsJe5NlURiXlQ&libraries=places"></script>
 </head>
 
 <body>
@@ -50,49 +48,6 @@
         <p class="dev">Desenvolvido por HardSmith</p>
         <p class="direitos">© 2024 HardSmith. Todos os direitos reservados.</p>
     </footer>
-    <script>
-        let map, directionsService, directionsRenderer;
-
-        // Função para inicializar o mapa
-        function initMap() {
-            map = new google.maps.Map(document.getElementById("map"), {
-                center: { lat: -23.55052, lng: -46.633308 }, // Exemplo: São Paulo
-                zoom: 7,
-            });
-
-            directionsService = new google.maps.DirectionsService();
-            directionsRenderer = new google.maps.DirectionsRenderer();
-            directionsRenderer.setMap(map);
-        }
-
-        // Função para calcular e mostrar a rota
-        function calculateRoute() {
-            const origin = document.getElementById("origin").value;
-            const destination = document.getElementById("destination").value;
-
-            if (!origin || !destination) {
-                alert("Por favor, insira os dois locais.");
-                return;
-            }
-
-            const request = {
-                origin: origin,
-                destination: destination,
-                travelMode: google.maps.TravelMode.DRIVING,  // Modo de viagem
-            };
-
-            directionsService.route(request, (result, status) => {
-                if (status === google.maps.DirectionsStatus.OK) {
-                    directionsRenderer.setDirections(result);
-                } else {
-                    alert("Não foi possível calcular a rota: " + status);
-                }
-            });
-        }
-
-        // Carregar o mapa quando a página for carregada
-        window.onload = initMap;
-    </script>
 </body>
 
 </html>
