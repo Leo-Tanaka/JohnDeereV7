@@ -56,8 +56,8 @@ MongoClient.connect('mongodb+srv://leonardotanaka0513:KunZuvo6B6qq3hFe@esp32db.c
             }
         };
 
-        var image = L.imageOverlay('src/assets/JD_V2.png', bounds).addTo(map);
-        image.src = 'src/assets/JD_V2.png'; // Substitua com o caminho correto
+        var image = L.imageOverlay('https://postimg.cc/YvysYWBV', bounds).addTo(map);
+        image.src = 'https://postimg.cc/YvysYWBV'; // Substitua com o caminho correto
 
         image.onload = () => {
             const canvas = createCanvas(300, 200);
