@@ -12,7 +12,7 @@ model.add(tf.layers.dense({ units: 2 }));
 model.compile({ optimizer: tf.optimizers.adam(), loss: 'meanSquaredError' });
 
 // Conecte-se ao banco de dados
-MongoClient.connect('mongodb://localhost:27017/', (err, client) => {
+MongoClient.connect('mongodb+srv://leonardotanaka0513:KunZuvo6B6qq3hFe@esp32db.cf2vc.mongodb.net/?retryWrites=true&w=majority&appName=esp32db', (err, client) => {
     if (err) {
         console.error(err);
         return;
@@ -21,8 +21,32 @@ MongoClient.connect('mongodb://localhost:27017/', (err, client) => {
 
     // Selecione a coleção de dados
     const db = client.db();
-    const collection = db.collection('your_collection_name');
+    const collection = db.collection('test.espdatas');
 
+     // Crie o servidor Express
+     const app = express();
+     app.use(express.json()); // Adicione essa linha para processar JSON
+ 
+     // Endpoint para buscar as coordenadas do banco de dados
+     app.get('/coordenadas'), (req, res) => {
+         collection.find({}, { projection: { latitude: 1, longitude: 1, _id: 0 } }).toArray((err, data) => {
+             if (err) {
+                 console.error(err);
+                 res.status(500).send('Erro ao buscar dados do banco de dados');
+                 return;
+             }
+ 
+             // Enviar os dados como JSON para o frontend
+             res.json(data);
+            }
+        );
+    }
+  // Iniciar o servidor na porta 3000
+  const port = 3000;
+  app.listen(port, () => {
+      console.log(`Servidor iniciado na porta ${port}`);
+  });
+});
     // Busque os dados
     collection.find().toArray((err, data) => {
         if (err) {
@@ -66,7 +90,7 @@ MongoClient.connect('mongodb://localhost:27017/', (err, client) => {
 
         // Carregue a imagem
         const image = new canvas.Image();
-        image.src = 'caminho/para/imagem.jpg'; // substitua com o caminho para sua imagem
+        image.src = 'caminho/para/assets/JD_V2.png'; // substitua com o caminho para sua imagem
 
         // Espere a imagem carregar
         image.onload = () => {
@@ -108,4 +132,3 @@ MongoClient.connect('mongodb://localhost:27017/', (err, client) => {
                 });
         };
     });
-});

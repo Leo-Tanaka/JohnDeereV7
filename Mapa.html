@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./src/css/Mapa.css" />
     <title>Visualização de Carros e Rotas</title>
-    <!-- Adicione o script da API do Google Maps com sua chave -->
+    <script src="./src/js/Mapa.js"></script>
 </head>
 
 <body>
@@ -41,6 +41,7 @@
             <h2>Rotas e Localização dos Carros</h2>
             <!-- Mapa será renderizado aqui -->
             <div id="map"></div>
+            <canvas id="canvas" width="300" height="200"></canvas>
         </div>
     </div>
     <footer>
@@ -48,6 +49,31 @@
         <p class="dev">Desenvolvido por HardSmith</p>
         <p class="direitos">© 2024 HardSmith. Todos os direitos reservados.</p>
     </footer>
+    <script>
+        fetch('/coordenadas')
+            .then(response => response.json())
+            .then(data => {
+                const canvas = document.getElementById('canvas');
+                const ctx = canvas.getContext('2d');
+
+                // Clear the canvas
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                // Draw the image
+                const image = new Image();
+                image.src = 'path/to/assets/JD_V2.png'; // replace with your image path
+                image.onload = () => {
+                    ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+                    // Draw the ESP32 location
+                    ctx.fillStyle = 'red';
+                    ctx.fillRect(data.latitude * 50, data.longitude * 50, 10, 10);
+                };
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
 </body>
 
 </html>
