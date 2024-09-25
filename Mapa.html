@@ -26,26 +26,24 @@
     <div class="container">
 
         <div class="carros-status">
-            <img class="icom" src="./src/assets/Status.png" alt="Status">
+            <img class="icon" src="./src/assets/Status.png" alt="Status">
             <h2>Rotas dos Carros</h2>
-            <!-- Campos para o usuário inserir o ponto de partida e destino -->
             <label for="origin">Origem:</label>
-            <input type="text" id="origin" placeholder="Digite a origem "> <!-- Exemplo: São Paulo -->
+            <input type="text" id="origin" placeholder="Digite a origem ">
             <label for="destination">Destino:</label>
-            <input type="text" id="destination" placeholder="Digite o destino "> <!-- Exemplo: Rio de Janeiro -->
+            <input type="text" id="destination" placeholder="Digite o destino ">
             <button onclick="calculateRoute()">Calcular Rota</button>
         </div>
 
         <div class="map-container">
             <img src="./src/assets/Mapa.png" alt="Mapa">
             <h2>Rotas e Localização dos Carros</h2>
-            <!-- Mapa será renderizado aqui -->
             <div id="map"></div>
-            <canvas id="canvas" width="300" height="200"></canvas>
+            <canvas id="canvas" class="map_img" width="600" height="400"></canvas>
         </div>
     </div>
     <footer>
-        <img class="HardSmith" src="./src/assets/HS_V2.png">
+        <img class="HardSmith" src="./src/assets/HS_V2.png" alt="HS Logo">
         <p class="dev">Desenvolvido por HardSmith</p>
         <p class="direitos">© 2024 HardSmith. Todos os direitos reservados.</p>
     </footer>
@@ -61,13 +59,15 @@
 
                 // Draw the image
                 const image = new Image();
-                image.src = 'path/to/assets/JD_V2.png'; // replace with your image path
+                image.src = 'src/assets/JD_V2.png'; // replace with your image path
                 image.onload = () => {
                     ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
 
-                    // Draw the ESP32 location
-                    ctx.fillStyle = 'red';
-                    ctx.fillRect(data.latitude * 50, data.longitude * 50, 10, 10);
+                    // Draw each ESP32 location from the array of data
+                    data.forEach(location => {
+                        ctx.fillStyle = 'red';
+                        ctx.fillRect(location.latitude * 50, location.longitude * 50, 10, 10);
+                    });
                 };
             })
             .catch(error => {
