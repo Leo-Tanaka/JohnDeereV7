@@ -1,4 +1,4 @@
-# Spot: Um Projeto de Monitoramento de Carrinhos
+# John_Deere
 ================
 
 ## Descrição
