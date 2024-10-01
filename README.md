@@ -118,8 +118,6 @@ Se você tiver alguma dúvida ou precisar de ajuda, entre em contato conosco atr
 
 Este projeto foi desenvolvido por:
 
-- Artur Saraiva
 - Bruno Takaya
-- Leonardo Veleiro
 - Leonardo Tanaka
-- Tiago Nário
+
