@@ -11,7 +11,7 @@ A solução utiliza um ESP32 com Wi-Fi para coletar dados de localização e sta
 Aqui estão os links para os repositórios relacionados que você pode precisar acessar para configurar ou entender a arquitetura completa do projeto:
 
 1. [Repositório ESP32](https://github.com/Leo-Tanaka/esp32): Este repositório contém o firmware necessário para configurar o ESP32 e conectá-lo à aplicação.
-2. [Repositório MongoDB](https://github.com/Leo-Tanaka/esp32-server): Scripts e configurações para rodar e gerenciar o banco de dados MongoDB.
+2. [Repositório Node.js](https://github.com/Leo-Tanaka/esp32-server): Scripts e configurações para rodar e gerenciar o banco de dados Node.js.
 3. [Vídeo do funcionamento do site](https://youtu.be/9FUN8H0Ebfs): Demonstração em vídeo do site em funcionamento.
 
 ## Desenvolvimento
@@ -27,7 +27,7 @@ A solução de monitoramento dos carrinhos kit na linha de produção utiliza a 
 5. **Front-End**: Responsável por apresentar os dados de forma visual, utilizando gráficos e o mapa interativo. As interações com o back-end ocorrem por meio de chamadas RESTful APIs, que permitem a atualização dos dados sem a necessidade de recarregar a página.
 6. **Back-End**: Responsável por processar as requisições do front-end, consultar o banco de dados e atualizar os dados conforme necessário.
 
-### Diagrama de Arquiteura
+### Diagrama de Arquitetura
 
 ![Diagrama](./src/assets/diagram.png)
 
@@ -37,7 +37,6 @@ A solução de monitoramento dos carrinhos kit na linha de produção utiliza a 
 - **Node.js**: Desenvolvimento do servidor web.
 - **MongoDB**: Banco de dados não relacional.
 - **HTML, CSS e JavaScript**: Desenvolvimento da aplicação web.
-- **draw.io**: Criação dos diagramas da arquitetura do projeto.
 
 ## Resultados
 
