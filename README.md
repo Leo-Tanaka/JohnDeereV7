@@ -118,5 +118,5 @@ Se você tiver alguma dúvida ou precisar de ajuda, entre em contato conosco atr
 Este projeto foi desenvolvido por:
 
 - Bruno Takaya
-- Leonardo Tanaka
+- Leonardo Tanaka Cortez
 
